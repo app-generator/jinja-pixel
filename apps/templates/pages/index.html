@@ -1,6 +1,4 @@
 {% extends 'layouts/base.html' %}
-{% load static %}
-
 {% block content %}
 
 <main>
@@ -36,7 +34,7 @@
               aria-label="Star themesberg/pixel-bootstrap-ui-kit on GitHub">Star</a>
           </div>
           <div class="d-flex justify-content-center flex-column mb-6 mb-lg-5">
-              <img src="{% static 'assets/img/themesberg.svg' %}" class="d-block mx-auto mb-3" height="25" width="25"
+              <img src="{{url_for('static', filename='assets/img/themesberg.svg')}}" class="d-block mx-auto mb-3" height="25" width="25"
                 alt="Themesberg Logo">
               <span class="text-muted font-small"> 
                 &copy; Themesberg - coded by AppSeed.
@@ -53,7 +51,7 @@
   <div class="section py-0">
     <div class="container mt-n10 mt-lg-n12 z-2">
       <div class="row justify-content-center">
-        <div class="col-12 col-md-10"><img src="{% static 'assets/img/presentation-mockup.png' %}" alt="Pixel Free Mockup"></div>
+        <div class="col-12 col-md-10"><img src="{{url_for('static', filename='assets/img/presentation-mockup.png')}}" alt="Pixel Free Mockup"></div>
       </div>
     </div>
   </div>
@@ -100,7 +98,7 @@
             class="btn btn-outline-primary"><span class="fas fa-book me-2"></span> Getting started</a>
         </div>
         <div class="col-12 col-lg-6 order-lg-1">
-          <img src="{% static 'assets/img/illustrations/bs5-illustrations.svg' %}" alt="Front pages overview">
+          <img src="{{url_for('static', filename='assets/img/illustrations/bs5-illustrations.svg')}}" alt="Front pages overview">
         </div>
       </div>
       <div class="row justify-content-between align-items-center mb-5 mb-lg-7">
@@ -118,7 +116,7 @@
           </a>
         </div>
         <div class="col-lg-6">
-          <img src="{% static 'assets/img/sections-mockup.jpg' %}" alt="MapBox Leaflet.js Custom Integration Mockup">
+          <img src="{{url_for('static', filename='assets/img/sections-mockup.jpg')}}" alt="MapBox Leaflet.js Custom Integration Mockup">
         </div>
       </div>
       <div class="row justify-content-between align-items-center">
@@ -134,7 +132,7 @@
             dashboard</a>
         </div>
         <div class="col-12 col-lg-6 order-lg-1">
-          <img src="{% static 'assets/img/presentation-mockup-dashboard.png' %}" alt="Dashboard Preview">
+          <img src="{{url_for('static', filename='assets/img/presentation-mockup-dashboard.png')}}" alt="Dashboard Preview">
         </div>
       </div>
     </div>
@@ -453,7 +451,7 @@
           <!-- Icon box -->
           <div class="icon-box text-center mb-5">
             <div class="icon">
-              <img class="navbar-brand-dark" style="height: 37px;" src="{% static 'assets/img/brand/light.svg' %}" alt="Pixel logo">
+              <img class="navbar-brand-dark" style="height: 37px;" src="{{url_for('static', filename='assets/img/brand/light.svg')}}" alt="Pixel logo">
             </div>
             <h3 class="h5 my-3">Every pixel matters</h3>
             <p>We crafted each component with great care so that no rouge pixel is left behind</p>
