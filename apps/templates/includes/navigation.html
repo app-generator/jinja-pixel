@@ -1,4 +1,4 @@
-{% load static %}
+
 
 <header class="header-global">
 
@@ -9,15 +9,15 @@
     {% endif %}  
       <div class="container position-relative">
           <a class="navbar-brand me-lg-5" href="/">
-              <img class="navbar-brand-dark" src="{% static 'assets/img/brand/light.svg' %}" alt="Logo light">
-              <img class="navbar-brand-light" src="{% static 'assets/img/brand/dark.svg' %}" alt="Logo dark">
+              <img class="navbar-brand-dark" src="{{url_for('static', filename='assets/img/brand/light.svg')}}" alt="Logo light">
+              <img class="navbar-brand-light" src="{{url_for('static', filename='assets/img/brand/dark.svg')}}" alt="Logo dark">
           </a>
           <div class="navbar-collapse collapse me-auto" id="navbar_global">
               <div class="navbar-collapse-header">
                   <div class="row">
                       <div class="col-6 collapse-brand">
                           <a href="/">
-                              <img src="{% static 'assets/img/brand/dark.svg' %}" alt="Themesberg logo">
+                              <img src="{{url_for('static', filename='assets/img/brand/dark.svg')}}" alt="Themesberg logo">
                           </a>
                       </div>
                       <div class="col-6 collapse-close">
@@ -37,10 +37,10 @@
                                   <h6 class="d-block mb-3 text-primary">Main pages</h6>
                                   <ul class="list-style-none mb-4">
                                       <li class="mb-2 megamenu-item">
-                                          <a class="megamenu-link" href="{% url 'about_us' %}">About</a>
+                                          <a class="megamenu-link" href="{{ url_for('pages_about') }}">About</a>
                                       </li>
                                       <li class="mb-2 megamenu-item">
-                                          <a class="megamenu-link" href="{% url 'contact_us' %}">Contact</a>
+                                          <a class="megamenu-link" href="{{ url_for('pages_contact') }}">Contact</a>
                                       </li>
                                   </ul>
                               </div>
@@ -48,28 +48,26 @@
                                   <h6 class="d-block mb-3 text-primary">Landings</h6>
                                   <ul class="list-style-none mb-4">
                                       <li class="mb-2 megamenu-item">
-                                          <a class="megamenu-link" href="{% url 'landing_freelancer' %}">Freelancer</a>
+                                          <a class="megamenu-link" href="{{ url_for('pages_landing_freelancer') }}">Freelancer</a>
                                       </li>
                                   </ul>
                               </div>
                               <div class="col-6 col-lg-4">
                                   <h6 class="d-block mb-3 text-primary">User</h6>
                                   <ul class="list-style-none mb-4">
-                                    {% if request.user.is_authenticated %}
                                         <li class="mb-2 megamenu-item">
-                                            <a class="megamenu-link" href="{% url 'password_change' %}">Change Password</a>
+                                            <a class="megamenu-link" href="{{ url_for('acc_change_password') }}">Change Password</a>
                                         </li>
                                         <li class="mb-2 megamenu-item">
-                                            <a class="megamenu-link" href="{% url 'logout' %}">Logout</a>
+                                            <a class="megamenu-link" href="#">Logout</a>
                                         </li>
-                                    {% else %}
+
                                       <li class="mb-2 megamenu-item">
-                                          <a class="megamenu-link" href="{% url 'login' %}">Sign in</a>
+                                          <a class="megamenu-link" href="{{ url_for('acc_sign_in') }}">Sign in</a>
                                       </li>
                                       <li class="mb-2 megamenu-item">
-                                          <a class="megamenu-link" href="{% url 'register' %}">Sign up</a>
+                                          <a class="megamenu-link" href="{{ url_for('acc_sign_up') }}">Sign up</a>
                                       </li>
-                                    {% endif %}
                                   </ul>
                               </div>
                           </div>
@@ -84,45 +82,45 @@
                           <div class="row g-0">
                               <div class="col-lg-6 bg-dark d-none d-lg-block me-0 me-3">
                                   <div class="px-0 py-3 text-center">
-                                      <img src="{% static 'assets/img/megamenu_image.png' %}" alt="Pixel Components">
+                                      <img src="{{url_for('static', filename='assets/img/megamenu_image.png')}}" alt="Pixel Components">
                                   </div>
                               </div>
                               <div class="col ps-0 py-3">
                                   <ul class="list-style-none">
-                                      <li><a class="dropdown-item" href="{% url 'accordion' %}">Accordions</a></li>
-                                      <li><a class="dropdown-item" href="{% url 'alerts' %}">Alerts</a></li>
-                                      <li><a class="dropdown-item" href="{% url 'badges' %}">Badges</a></li>
-                                      <li><a class="dropdown-item" href="{% url 'cards' %}">Cards</a></li>
-                                      <li><a class="dropdown-item" href="{% url 'carousels' %}">Carousels</a></li>
-                                      <li><a class="dropdown-item" href="{% url 'breadcrumbs' %}">Breadcrumbs</a></li>
-                                      <li><a class="dropdown-item" href="{% url 'buttons' %}">Buttons</a></li>
+                                      <li><a class="dropdown-item" href="{{ url_for('components_accordions') }}">Accordions</a></li>
+                                      <li><a class="dropdown-item" href="{{ url_for('components_alerts') }}">Alerts</a></li>
+                                      <li><a class="dropdown-item" href="{{ url_for('components_badges') }}">Badges</a></li>
+                                      <li><a class="dropdown-item" href="{{ url_for('components_cards') }}">Cards</a></li>
+                                      <li><a class="dropdown-item" href="{{ url_for('components_bs_carousels') }}">Carousels</a></li>
+                                      <li><a class="dropdown-item" href="{{ url_for('components_breadcrumbs') }}">Breadcrumbs</a></li>
+                                      <li><a class="dropdown-item" href="{{ url_for('components_buttons') }}">Buttons</a></li>
                                   </ul>
                               </div>
                               <div class="col ps-0 py-3">
                                   <ul class="list-style-none">
-                                      <li><a class="dropdown-item" href="{% url 'dropdowns' %}">Dropdowns</a></li>
-                                      <li><a class="dropdown-item" href="{% url 'forms' %}">Forms</a></li>
-                                      <li><a class="dropdown-item" href="{% url 'modals' %}">Modals</a></li>
-                                      <li><a class="dropdown-item" href="{% url 'navs' %}">Navs</a></li>
-                                      <li><a class="dropdown-item" href="{% url 'pagination' %}">Pagination</a></li>
-                                      <li><a class="dropdown-item" href="{% url 'popovers' %}">Popovers</a></li>
+                                      <li><a class="dropdown-item" href="{{ url_for('components_dropdowns') }}">Dropdowns</a></li>
+                                      <li><a class="dropdown-item" href="{{ url_for('components_forms') }}">Forms</a></li>
+                                      <li><a class="dropdown-item" href="{{ url_for('components_modals') }}">Modals</a></li>
+                                      <li><a class="dropdown-item" href="{{ url_for('components_navs') }}">Navs</a></li>
+                                      <li><a class="dropdown-item" href="{{ url_for('components_pagination') }}">Pagination</a><li>
+                                      <li><a class="dropdown-item" href="{{ url_for('components_popovers') }}">Popovers</a></li>
                                   </ul>
                               </div>
                               <div class="col ps-0 py-3">
                                   <ul class="list-style-none">
-                                      <li><a class="dropdown-item" href="{% url 'progress_bars' %}">Progress Bars</a></li>
-                                      <li><a class="dropdown-item" href="{% url 'tables' %}">Tables</a></li>
-                                      <li><a class="dropdown-item" href="{% url 'tabs' %}">Tabs</a> </li>
-                                      <li><a class="dropdown-item" href="{% url 'toasts' %}">Toasts</a> </li>
-                                      <li><a class="dropdown-item" href="{% url 'tooltips' %}">Tooltips</a></li>
-                                      <li><a class="dropdown-item" href="{% url 'typography' %}">Typography</a></li>
+                                      <li><a class="dropdown-item" href="{{ url_for('components_progress_bars') }}">Progress Bars</a></li>
+                                      <li><a class="dropdown-item" href="{{ url_for('components_tables') }}">Tables</a></li>
+                                      <li><a class="dropdown-item" href="{{ url_for('components_tabs') }}">Tabs</a> </li>
+                                      <li><a class="dropdown-item" href="{{ url_for('components_toasts') }}">Toasts</a> </li>
+                                      <li><a class="dropdown-item" href="{{ url_for('components_tooltips') }}">Tooltips</a></li>
+                                      <li><a class="dropdown-item" href="{{ url_for('components_typography') }}">Typography</a></li>
                                   </ul>
                               </div>
                           </div>
                       </div>
                   </li>
                   <li class="nav-item dropdown">
-                      <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" id="supportDropdown" aria-expanded="false">
+                      <a href="{{ url_for('acc_sign_in') }}" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" id="supportDropdown" aria-expanded="false">
                           Support
                           <span class="fas fa-angle-down nav-link-arrow ms-1"></span>
                       </a>
@@ -143,13 +141,10 @@
               </ul>
           </div>
           <div class="d-flex align-items-center">              
-            {% if request.user.is_authenticated %}
-                <a href="{% url 'logout' %}"
+                <a href="#"
                    class="btn btn-outline-gray-100 d-none d-lg-inline me-md-3"><span class="fas fa-sign-out-alt me-2"></span> Logout</a>            
-            {% else %}
-                <a href="{% url 'login' %}"
-                    class="btn btn-outline-gray-100 d-none d-lg-inline me-md-3"><span class="fas fa-sign-in-alt me-2"></span> Sign IN</a>            
-            {% endif %}
+                <a href=""
+                    class="btn btn-outline-gray-100 d-none d-lg-inline me-md-3"><span class="fas fa-sign-in-alt me-2"></span> Sign In</a>            
               <a target="_blank" href="https://appseed.us/product/pixel-bootstrap/django/" class="btn btn-tertiary"><i class="fas fa-cloud-download-alt me-2"></i> Download</a>
               <button class="navbar-toggler ms-2" type="button" data-bs-toggle="collapse" data-bs-target="#navbar_global" aria-controls="navbar_global" aria-expanded="false" aria-label="Toggle navigation">
                   <span class="navbar-toggler-icon"></span>
